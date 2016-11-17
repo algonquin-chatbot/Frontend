@@ -1,0 +1,14 @@
+{
+  "name": "ionCard-6",
+  "app_id": "",
+  "gulpStartupTasks": [
+    "default",
+    "watch",
+    "sass"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ],
+  "documentRoot": "www"
+}

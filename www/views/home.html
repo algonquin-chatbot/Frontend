@@ -1,0 +1,54 @@
+<ion-modal-view>
+  <ion-content  style="background: url(img/background.png) center; background-size: cover;">
+        <div style="padding: 100px">
+        
+      </div>
+    <form ng-submit="doLogin()" name="loginForm">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" name="username" ng-model="loginData.email" ng-minlength="3" ng-maxlength="30" required>
+        </label>        
+        <div ng-messages="loginForm.username.$error">
+      <!--  class="form-errors" ng-if="loginForm.username.$touched">
+            <div ng-messages-include="template/error-messages./html" ></div>
+          <div class="form-error" ng-message="required">Please enter your Email (At least 3 characters)</div>-->
+        </div>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" name="password" ng-model="loginData.password" ng-minlength="5" ng-maxlength="30" required>
+        </label>
+        <div ng-messages="loginForm.password.$error"> 
+       <!--  class="form-errors" ng-if="loginForm.username.$touched">
+            <div ng-messages-include="template/error-messages.html"></div>
+         <div class="form-error" ng-message="required">Please enter your Password (At least 5 characters)</div>-->
+        </div>
+        <label class="item">
+          <button class="button button-block button-positive" name="submit" type="submit" ng-disabled="loginForm.$invalid" ng-click="auth_true()">Sign In</button>
+        </lqabel>
+        
+          <div ng-show="myvalue" style="text-align:center;">Email or Password is wrong</div>
+        
+      </div>
+		
+		<div class="row  padding removePM">
+	  <div class="col"> <a class="button-red button button-block" ng-click="auth_true_Gmail()"><i class="icon ion-social-google"></i></a> </div>
+	  <div class="col"> <a class="button-positive button button-block" ng-click="auth_true_Facebook()"><i class="icon ion-social-facebook"></i></a> </div>
+	</div>
+	   
+	   <div class="row">
+            <button class="button button-full button-clear button-positive title" ng-click="forgot_password()">
+				Forget Password?
+			</button>
+        </div>  
+
+    </form>
+  </ion-content>
+  <ion-footer-bar class="bar-stable center">
+		<div>
+		<button class="button button-clear button-positive title" ng-click="new_user_clicked()">
+				New User?
+			</button>
+			</div>
+	</ion-footer-bar>
+</ion-modal-view>

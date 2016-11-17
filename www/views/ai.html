@@ -1,0 +1,58 @@
+<ion-view hide-nav-bar="true" title="MyBOT">
+   <ion-header-bar align-title="left" class="bar-positive"  style="background: url(img/banner.jpg) center; background-size: cover;">
+      <h1 class="title" style="color:yellow;">MTN</h1>
+   </ion-header-bar>
+   <ion-content class="has-header">
+      <div ng-repeat="message in messages"
+         ng-class="{other: message.userId != myId}"
+         class="messages">
+         <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}">
+            <span ng-hide="message.action == 'ebayShopping'">{{ message.text }}</span>
+            <div ng-show="message.action == 'ebayShopping'" class="list card" >
+               <div class="item item-avatar" ng-click="showModal(message.data);">
+                  <img src="{{message.image}}">
+                  <h2>{{message.title}}</h2>
+                  <p>${{message.value}}</p>
+               </div>
+               <div class="item item-image">
+                  <a href="{{message.buyLink}}"><img src="{{message.image}}" style="width: 50%; height: 50%"></a>
+               </div>
+            </div>
+         </div>
+         <div class="time" ng-class="{'slide-right': hideTime, '': !hideTime}">{{message.time}}</div>
+      </div>
+   </ion-content>
+   <ion-footer-bar keyboard-attach class="bar-stable item-input-inset">
+      <i class="icon ion-ios-circle-filled" ng-click="showModal(message.data);" ng-show="message.action == 'ebayShopping'" style=" font-size: 25px;"></i>
+      <i class="icon ion-ios-circle-outline" ng-click="showModal(message.data);" ng-hide="message.action == 'ebayShopping'" style=" font-size: 25px;"></i>
+      <label class="item-input-wrapper">
+      <input type="text" placeholder="Type your message" on-return="sendMessage(); closeKeyboard()" ng-model="data.message" on-focus="inputUp()" on-blur="inputDown()" />
+      </label>
+      <i class="icon ion-ios-paperplane" ng-click="sendMessage()" style=" font-size: 25px;"></i>
+   </ion-footer-bar>
+   
+   
+   <script id="templates/modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Animate Css Modals</h1>
+              <button class="button button-full button-positive" ng-click="hideModal()">CLOSE</button>
+        </ion-header-bar>
+        
+        <ion-content class="padding">
+        
+        <div class="list" ng-repeat="modalMessage in modalMessages">
+      
+        <a class="item item-avatar item-text-wrap" href="#">
+          <img src="{{modalMessage.image}}">
+          <h2 class="wrap">{{modalMessage.title}}</h2>
+          <p>${{modalMessage.value}}</p>
+          <p><button class="button button-small button-positive"> BUY ME </button></p>
+        </a>
+        </div>
+        
+        </ion-content>
+      </ion-modal-view>
+   </script>
+   </ion-content>
+</ion-view>
