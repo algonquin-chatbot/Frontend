@@ -1,0 +1,10 @@
+{
+    "cordova-plugin-apiai": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-apiai"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}
