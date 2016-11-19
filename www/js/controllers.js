@@ -22,11 +22,12 @@ angular.module('your_app_name.controllers', [])
         d = d.toLocaleTimeString().replace(/:\d+ /, ' ');
         //You always need to replace spaces with %20 since REST calls cannot have spaces
         var query = $scope.data.message.split(' ').join('%20');
+        console.log(query)
         //query is where the user text enters the REST call
         $http.get("https://api.api.ai/api/query?v=20150910&query=" + query + "&lang=en&sessionId=2e5f4610-25b7-4df6-a32f-8a7d2c448bee&timezone=America/New_York", {
                 headers: {
                     //This is the id from api.ai
-                    'Authorization': 'Bearer 1036b0e546f84294b4a41a46a6b86074'
+                    'Authorization': 'Bearer 0545cf34c52d4f83bc34d8e737b2662b'
                 }
             })
             .success(function(data) {
@@ -41,17 +42,14 @@ angular.module('your_app_name.controllers', [])
 
                 // $scope.mess.push({id: 1, reply: data.result.fulfillment.speech});
                 // console.log($scope.mess[i].reply);
-                if (data.result.action == "ebayShopping") {
+                if (data.result.action == "getExercise") {
                     $scope.messages.push({
                         userId: '12345',
                         text: $scope.rep,
                         action: data.result.action,
-                        image: data.result.fulfillment.data.SearchResult[0].ItemArray.Item[0].GalleryURL,
-                        title: data.result.fulfillment.data.SearchResult[0].ItemArray.Item[0].Title,
-                        value: data.result.fulfillment.data.SearchResult[0].ItemArray.Item[0].ConvertedCurrentPrice.Value,
-                        buyLink: data.result.fulfillment.data.SearchResult[0].ItemArray.Item[0].ViewItemURLForNaturalSearch,
-                        data: data.result.fulfillment.data.SearchResult[0].ItemArray,
-                        time: d
+                        exerciseName: data.result.fulfillment.data.exerciseName,
+                        primaryMusclesTargeted: data.result.fulfillment.data.primaryMusclesTargeted,
+                        recommendedEquipment: data.result.fulfillment.data.recommendedEquipment
                     });
                     console.log(data.result.fulfillment.data.SearchResult[0].ItemArray);
                 } else {

@@ -19,8 +19,8 @@
             <div ng-show="message.action == 'ebayShopping'" class="list card" >
                <div class="item item-avatar" ng-click="showModal(message.data);">
                   <img src="{{message.image}}">
-                  <h2>{{message.title}}</h2>
-                  <p>${{message.value}}</p>
+                  <h2>{{message.exerciseName}}</h2>
+                  <p>${{message.recommendedEquipment}}</p>
                </div>
                <div class="item item-image">
                   <a href="{{message.buyLink}}"><img src="{{message.image}}" style="width: 50%; height: 50%"></a>
