@@ -51,7 +51,8 @@ angular.module('your_app_name.controllers', [])
                         primaryMusclesTargeted: data.result.fulfillment.data.primaryMusclesTargeted,
                         recommendedEquipment: data.result.fulfillment.data.recommendedEquipment
                     });
-                    console.log(data.result.fulfillment.data.SearchResult[0].ItemArray);
+                    console.log(data.result.fulfillment.data);
+                    console.log(data.result.fulfillment.data.exerciseName);
                 } else {
                     $scope.messages.push({
                         userId: '12345',

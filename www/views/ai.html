@@ -15,8 +15,8 @@
          class="messages">
 		
          <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}">
-            <span ng-hide="message.action == 'ebayShopping'">{{ message.text }}</span>
-            <div ng-show="message.action == 'ebayShopping'" class="list card" >
+            <span ng-hide="message.action == 'getExercise'">{{ message.text }}</span>
+            <div ng-show="message.action == 'getExercise'" class="list card" >
                <div class="item item-avatar" ng-click="showModal(message.data);">
                   <img src="{{message.image}}">
                   <h2>{{message.exerciseName}}</h2>
