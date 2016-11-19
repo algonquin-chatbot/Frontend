@@ -1,7 +1,6 @@
 angular.module('your_app_name.controllers', [])
 
 
-
 .controller('HomeCtrl', function($scope, $timeout, $ionicScrollDelegate) {
 
 })

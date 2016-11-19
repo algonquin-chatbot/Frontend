@@ -1,11 +1,19 @@
 <ion-view hide-nav-bar="true" title="MyBOT">
-   <ion-header-bar align-title="left" class="bar-positive"  style="background: url(img/banner.jpg) center; background-size: cover;">
-      <h1 class="title" style="color:yellow;">MTN</h1>
+   <ion-header-bar align-title="center" class="bar-positive"  style="background: url(img/textlogo.PNG) center; background-size:auto; background-repeat: no-repeat" >
    </ion-header-bar>
+   <br>
+   <br>
+   <br>
+   <br>
+   <div class="fader">
+   <h4 style="text-align:center; color:gray">Start your workout with advice from FitBot</h4>
+   </div>
    <ion-content class="has-header">
-      <div ng-repeat="message in messages"
+      <div
+	  ng-repeat="message in messages"
          ng-class="{other: message.userId != myId}"
          class="messages">
+		
          <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}">
             <span ng-hide="message.action == 'ebayShopping'">{{ message.text }}</span>
             <div ng-show="message.action == 'ebayShopping'" class="list card" >

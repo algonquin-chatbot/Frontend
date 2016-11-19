@@ -3474,14 +3474,20 @@ ion-infinite-scroll {
     -webkit-transform: translate3d(0, 0, 0); }
 
 /* If you change these, change platform.scss as well */
+.fader {
+
+}
 .has-header {
-  top: 44px; }
+  top: 80px; 
+  margin-top:0px;
+
+  }
 
 .no-header {
   top: 0; }
 
 .has-subheader {
-  top: 88px; }
+  top: 80px; }
 
 .has-tabs-top {
   top: 93px; }
@@ -4247,7 +4253,9 @@ a.subdued {
 
 .bar-header {
   top: 0;
+  height:73px;
   border-top-width: 0;
+  margin: 5px;
   border-bottom-width: 1px; }
   .bar-header.has-tabs-top {
     border-bottom-width: 0px;
@@ -9231,6 +9239,7 @@ ion-spinner.spinner-on-load {
   padding: 10px 0 50px !important; }
 
 .messages {
+  background-color:white;
   display: -webkit-box !important;
   display: -moz-box !important;
   display: -ms-flexbox !important;
@@ -9244,14 +9253,15 @@ ion-spinner.spinner-on-load {
   -webkit-align-items: center !important;
   -ms-flex-align: center !important;
   align-items: center !important;
-  margin-bottom: 20px !important; }
+  padding-bottom: 5px !important;
+padding-bottom: 5px !important;  }
   .messages .message {
     -webkit-box-flex: 1 !important;
     -moz-box-flex: 1 !important;
     -webkit-flex: 1 1 auto !important;
     -ms-flex: 1 1 auto !important;
     flex: 1 1 auto !important;
-    padding: 10px !important;
+    padding: 5px 10px 5px 10px !important;
     -webkit-transition: all 250ms ease-in-out !important;
     transition: all 250ms ease-in-out !important;
     overflow: hidden !important;
