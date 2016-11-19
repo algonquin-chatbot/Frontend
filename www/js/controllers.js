@@ -49,7 +49,9 @@ angular.module('your_app_name.controllers', [])
                         action: data.result.action,
                         exerciseName: data.result.fulfillment.data.exerciseName,
                         primaryMusclesTargeted: data.result.fulfillment.data.primaryMusclesTargeted,
-                        recommendedEquipment: data.result.fulfillment.data.recommendedEquipment
+                        recommendedEquipment: data.result.fulfillment.data.recommendedEquipment,
+                        video: data.result.fulfillment.data.video,
+                        data: data.result.fulfillment.data
                     });
                     console.log(data.result.fulfillment.data);
                     console.log(data.result.fulfillment.data.exerciseName);
@@ -111,16 +113,13 @@ angular.module('your_app_name.controllers', [])
             console.log($scope.selectedData);
             $scope.ebayShopping = function() {
                 if ($scope.selectedData != "") {
-                    var length = $scope.selectedData.Item.length;
-                    for (var x = 0; x < length; x++) {
                         $scope.modalMessages.push({
                             userId: '12345',
-                            image: $scope.selectedData.Item[x].GalleryURL,
-                            title: $scope.selectedData.Item[x].Title,
-                            value: $scope.selectedData.Item[x].ConvertedCurrentPrice.Value,
-                            buyLink: $scope.selectedData.Item[x].ViewItemURLForNaturalSearch
+                            exerciseName: $scope.selectedData.exerciseName,
+                            primaryMusclesTargeted: $scope.selectedData.primaryMusclesTargeted,
+                            recommendedEquipment: $scope.selectedData.recommendedEquipment,
+                            video: $scope.selectedData.video
                         });
-                    }
                 }
             }
             $scope.ebayShopping();

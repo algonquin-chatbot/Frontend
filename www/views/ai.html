@@ -15,11 +15,11 @@
          class="messages">
          <div class="message" ng-class="{'slide-right': hideTime, '': !hideTime}">
             <span ng-hide="message.action == 'getExercise'">{{ message.text }}</span>
-            <div ng-show="message.action == 'getExercise'" class="list card" >
+            <div ng-show="message.action == 'getExercise'" class="list card">
                <div class="item item-body">
                   <h2>{{message.exerciseName}}</h2>
                   <p>{{message.text}}</p>
-                  <a class="item item-icon-left assertive" ng-click="showModal(message.data);" href="#"> <i class="icon ion-music-note"></i>Watch Video</a>
+                  <a class="item item-icon-left assertive"  href="#"> <i class="icon ion-ios-play" ng-click="showModal(message.data);"></i>Watch Video</a>
                </div>
             </div>
          </div>
@@ -45,12 +45,21 @@
         
         <div class="list" ng-repeat="modalMessage in modalMessages">
       
-        <a class="item item-avatar item-text-wrap" href="#">
-          <img src="{{modalMessage.image}}">
-          <h2 class="wrap">{{modalMessage.title}}</h2>
-          <p>${{modalMessage.value}}</p>
-          <p><button class="button button-small button-positive"> BUY ME </button></p>
-        </a>
+        <a class="item item-text-wrap" href="#">
+          <h2 class="wrap">{{modalMessage.exerciseName}}</h2>
+          <p>Recommended Equipment: {{modalMessage.recommendedEquipment}}</p>
+        
+          <i class="ion-videocamera"></i>
+                Video
+        <div class="padding">
+                <object width="100%" height="150">
+                    <param name="movie" value="https://www.youtube.com/v/WzhW20hLp6M?version=3&amp;hl=uk_UA&amp;rel=0"></param>
+                    <param name="allowFullScreen" value="true"></param
+                    <param name="allowscriptaccess" value="always"></param>
+                    <embed src="https://www.youtube.com/v/WzhW20hLp6M?version=3&amp;hl=uk_UA&amp;rel=0" type="application/x-shockwave-flash" width="100%" height="150" allowscriptaccess="always" allowfullscreen="true"></embed>
+                </object>
+            </div>
+            </a>
         </div>
         
         </ion-content>
