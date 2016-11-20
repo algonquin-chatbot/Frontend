@@ -43,7 +43,7 @@
         
         <ion-content class="padding">
         
-        <div class="list" ng-repeat="modalMessage in modalMessages">
+        <div class="list card" ng-repeat="modalMessage in modalMessages">
       
         <a class="item item-text-wrap" href="#">
           <h2 class="wrap">{{modalMessage.exerciseName}}</h2>
@@ -51,14 +51,9 @@
         
           <i class="ion-videocamera"></i>
                 Video
-        <div class="padding">
-                <object width="100%" height="150">
-                    <param name="movie" value="https://www.youtube.com/v/WzhW20hLp6M?version=3&amp;hl=uk_UA&amp;rel=0"></param>
-                    <param name="allowFullScreen" value="true"></param
-                    <param name="allowscriptaccess" value="always"></param>
-                    <embed src="https://www.youtube.com/v/WzhW20hLp6M?version=3&amp;hl=uk_UA&amp;rel=0" type="application/x-shockwave-flash" width="100%" height="150" allowscriptaccess="always" allowfullscreen="true"></embed>
-                </object>
-            </div>
+             <div class="video-container">
+                    <iframe class="youtube-player" type="text/html" src="{{trustSrc(modalMessage.video)}}" allowfullscreen frameborder="0" width="560" height="315"></iframe>
+                </div>
             </a>
         </div>
         

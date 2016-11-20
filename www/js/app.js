@@ -25,7 +25,8 @@ angular.module('your_app_name', [
 })
 
 
-.config(function($stateProvider, $urlRouterProvider) {
+
+.config(function($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
     $stateProvider
 
         .state('home', {
@@ -40,6 +41,7 @@ angular.module('your_app_name', [
         })
 
     ;
+    $sceDelegateProvider.resourceUrlWhitelist(['.*']);
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/ai');

@@ -8,7 +8,7 @@ angular.module('your_app_name.controllers', [])
 
 
 
-.controller('AICtrl', function($scope, $timeout, $ionicScrollDelegate, $http, $ionicModal) {
+.controller('AICtrl', function($scope, $timeout, $ionicScrollDelegate, $http, $ionicModal, $sce) {
 
     $scope.hideTime = true;
 
@@ -45,7 +45,7 @@ angular.module('your_app_name.controllers', [])
                 if (data.result.action == "getExercise") {
                     $scope.messages.push({
                         userId: '12345',
-                        text: $scope.rep,
+                        text: data.result.fulfillment.speech,
                         action: data.result.action,
                         exerciseName: data.result.fulfillment.data.exerciseName,
                         primaryMusclesTargeted: data.result.fulfillment.data.primaryMusclesTargeted,
@@ -103,7 +103,7 @@ angular.module('your_app_name.controllers', [])
     $scope.myId = '12345';
     $scope.messages = [];
     $scope.modalMessages = [];
-
+    
     $scope.showModal = function(dataModal) {
         $ionicModal.fromTemplateUrl('templates/modal.html', {
             scope: $scope,
@@ -111,18 +111,23 @@ angular.module('your_app_name.controllers', [])
         }).then(function(modal) {
             $scope.selectedData = dataModal;
             console.log($scope.selectedData);
-            $scope.ebayShopping = function() {
+            
+            $scope.getExercise = function() {
+                $scope.videoFormatted = $scope.selectedData.video.split('/watch?v=').join('/embed/');
                 if ($scope.selectedData != "") {
                         $scope.modalMessages.push({
                             userId: '12345',
                             exerciseName: $scope.selectedData.exerciseName,
                             primaryMusclesTargeted: $scope.selectedData.primaryMusclesTargeted,
                             recommendedEquipment: $scope.selectedData.recommendedEquipment,
-                            video: $scope.selectedData.video
+                            video: $scope.videoFormatted
                         });
                 }
             }
-            $scope.ebayShopping();
+            $scope.trustSrc = function(src) {
+                 return $sce.trustAsResourceUrl(src);
+                }
+            $scope.getExercise();
             $scope.modal = modal;
             $scope.modal.show();
             $scope.hideModal = function() {
